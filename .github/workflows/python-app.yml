@@ -27,6 +27,8 @@ jobs:
         python -m pip install --upgrade pip
         pip install flask
         pip install pytest
+        
+    
 
 
   build-and-publish:
@@ -36,6 +38,12 @@ jobs:
     steps:
     - name: Checkout code
       uses: actions/checkout@v3
+
+    - name: Run Flask app (startup check)
+      run: |
+        python Index.py
+      env:
+        FLASK_ENV: development
 
     - name: Image digest
       run: echo ${{ steps.build-and-publish.outputs.digest }}
