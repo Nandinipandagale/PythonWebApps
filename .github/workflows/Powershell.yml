@@ -6,12 +6,13 @@ on:
   workflow_dispatch:
 
 jobs:
-  hello:
+  Powershell:
     runs-on: self-hosted
 
     steps:
+    
     - name: Run Get-Service
-      shell: pwsh
+      shell: powershell
       run: |
         Write-Host "Below are the running Services on Runner"
         Get-Service | Where-Object {$_.Status -eq "Running"}
