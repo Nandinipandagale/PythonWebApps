@@ -14,6 +14,6 @@ jobs:
     - name: Run Get-Service
       shell: powershell
       run: |
-        Write-Host "Below are the running Services on Runner"
+        Write-Host "Below are the running Services on Runner ,"
         Get-Service | Where-Object {$_.Status -eq "Running"}
 
